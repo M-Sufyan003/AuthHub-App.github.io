@@ -31,9 +31,14 @@ AuthHub is a full-stack authentication and authorization system built using **Re
 
 **Backend**
 
-* Java (Core Java / Spring Boot – planned)
+* Java (Core Java + Servlets + JDBC)
 * RESTful APIs
 * JWT-based authentication (planned)
+* Java Servlets
+* JDBC
+* DAO Pattern
+* BCrypt (Password hashing)
+* Custom Token Management
 
 **Database**
 
@@ -60,33 +65,46 @@ AuthHub-App/
 └── .gitignore
 ```
 
+## 🔐 Security Design Principles
+
+* Passwords stored using hashing (BCrypt)
+
+* Tokens stored in DB with expiration
+
+* OTP expiration & one-time usage
+
+* Cascade deletion on user removal
+
+* Soft activation using is_active
+
 ---
 
-## 🔑 Core Features (Current & Planned)
+## 🔑 Core Features
 
-### ✅ Phase 1 – Basics
+### 🔐 Authentication
 
-* User Registration (Signup)
-* User Login
-* Password hashing
-* Basic session handling
-* Form validation
+- Username + Password
+- Email + Phone registration
+- Multi-Factor Authentication (Password + OTP)
+- Biometric (Optional - Phase 1.5)
+- Token-based authentication (Custom secure tokens)
 
-### 🔄 Phase 2 – Security
+### 🛡️ Authorization
 
-* JWT Authentication
-* Refresh tokens
-* Role-based access control (Admin / User)
-* Protected routes
-* Password reset
+- Role-Based Access Control (RBAC)
+  - ADMIN
+  - USER
+  - EDITOR
 
-### ⚙️ Phase 3 – Advanced
+### 🚀 Future Enhancements
 
-* Email verification
-* OAuth (Google login)
-* Rate limiting
-* Audit logs
-* Admin dashboard
+- JWT Authentication
+- Refresh tokens
+- Email verification
+- OAuth (Google login)
+- Rate limiting
+- Audit logs
+- Admin dashboard
 
 ---
 
